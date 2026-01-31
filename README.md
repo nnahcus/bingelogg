@@ -14,6 +14,7 @@ Powered by TMDB API and Jikan API
 - User-specific media collection
 - Add, edit, delete your media entries
 - Search from real external APIs such as TMDB API and Jikan API
+- Custom add media form
 - Responsive UI
 - Image handling and preview
 - Middleware
