@@ -1,6 +1,9 @@
 import { auth } from '@/auth'
 import { NextResponse } from 'next/server'
 
+export const runtime = "nodejs";
+
+
 const DEFAULT_REDIRECT = "/dashboard"
 const PUBLIC_ROUTES =["/login", "/register", "/"]
 const API_ROUTES = "/api/auth"
