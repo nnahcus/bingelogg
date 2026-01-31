@@ -2,8 +2,7 @@
 import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Eye, EyeOff,} from 'lucide-react'
+import { Eye, EyeOff, Loader2,} from 'lucide-react'
 import { sns } from '../lib/constants/sns'
 import Link from 'next/link'
 import { Inter } from "next/font/google";
@@ -106,7 +105,9 @@ return (
                 <FormMessage />
             </FormItem>
         )} />
-        <Button type='submit' className='w-full space-y-2 py-2 my-1 bg-[#5b463f] hover:bg-[#3b2f2f]'><Link href="">Log in</Link></Button>
+        <Button type='submit' className='w-full space-y-2 py-2 my-1 bg-[#5b463f] hover:bg-[#3b2f2f]' disabled={LoginForm.formState.isSubmitting}>
+            {LoginForm.formState.isSubmitting && <Loader2 className="w-4 h-4 animate-spin mr-2" />}
+            Log in</Button>
         </form>
        </Form>
 <div className="py-2 flex items-center gap-4">
@@ -116,7 +117,8 @@ return (
 </div>
     <div className="flex flex-col gap-1 space-y-2 py-2">
         {sns.map((social) =>(
-            <Button key={social.id} type='button' onClick={() => signIn(social.provider, {callbackUrl: '/dashboard'})} className="w-full h-10 border text-[#3b2f2f] flex items-center justify-starts pl-10 bg-background p-3 gap-10 hover:bg-[#f2f2f2] cursor-pointer">
+            <Button key={social.id} type='button' onClick={() => signIn(social.provider, {callbackUrl: '/dashboard'})} 
+            className="w-full h-10 border text-[#3b2f2f] flex items-center justify-starts pl-10 bg-background p-3 gap-10 hover:bg-[#f2f2f2] cursor-pointer">
                 <img src={social.icon} className="h-5 w-5"/>
                 <h3 className='text-sm md:text-base font-normal'>Continue with {social.name}</h3>
             </Button>
