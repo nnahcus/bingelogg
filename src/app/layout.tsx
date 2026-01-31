@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
+import Providers from "./provider";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,14 +31,16 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
       <head>
         <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css'/>
         <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'/>
-      </head>
+      </head>        
+      <Providers>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased min-h-screen`}
       >
-        <Navbar/>
+
         {children}
-        <Footer/>
-      </body>
+ 
+      </body>       
+      </Providers>
     </html>
   );
 }

@@ -72,3 +72,13 @@ export const getTopMangas = async () => {
   const topMangas = await fetchJikanApi<JikanListResponse<Manga>>('/top/manga');
   return topMangas.data ?? topMangas;
 }
+
+export const searchAnimes = async (query: string) => {
+  const res = await fetchJikanApi<JikanListResponse<Anime>>(`/anime?q=${encodeURIComponent(query)}`);
+  return res.data ?? [];
+}
+
+export const searchMangas = async (query: string) => {
+  const res = await fetchJikanApi<JikanListResponse<Manga>>(`/manga?q=${encodeURIComponent(query)}`);
+  return res.data ?? [];
+}

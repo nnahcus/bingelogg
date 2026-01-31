@@ -5,18 +5,42 @@ const client_id = process.env.IGDB_CLIENT_ID;
 const secret_client = process.env.IGDB_SECRET_CLIENT;
 const authorization = process.env.IGDB_ACCESS_TOKEN;
 
+// Cache configuration: 60 days in milliseconds
+const CACHE_DURATION = 60 * 24 * 60 * 60 * 1000;
+
+// In-memory cache for API responses
+const apiCache = new Map<string, { data: any; timestamp: number }>();
 
 export const fetchIGDBApi = async (endpoint: string) => {
+  const currentTime = Date.now();
   
+  // Check if response exists in cache and hasn't expired
+  if (apiCache.has(endpoint)) {
+    const cached = apiCache.get(endpoint)!;
+    if (currentTime - cached.timestamp < CACHE_DURATION) {
+      return cached.data;
+    } else {
+      // Cache expired, remove it
+      apiCache.delete(endpoint);
+    }
+  }
+
   try {
     const response = await axios.post(
-      `${BaseUrl}${endpoint}`, `fields id,name,cover.image_id,rating; limit 5;`,{
+      `${BaseUrl}${endpoint}`, `fields id,name,cover.image_id,rating; limit 30;`,{
         headers:{
             'Client-ID': process.env.IGDB_CLIENT_ID,
             'Authorization': `Bearer ${process.env.IGDB_ACCESS_TOKEN}`,
         },
       }
     );
+    
+    // Cache the response
+    apiCache.set(endpoint, {
+      data: response.data,
+      timestamp: currentTime,
+    });
+    
     return response.data;
   } catch (error: any) {
     throw new Error(`IGDB API request failed: ${error?.message ?? error}`);

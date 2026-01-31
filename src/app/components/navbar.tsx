@@ -29,13 +29,17 @@ export default function Navbar() {
 
   return (
     <nav className="w-full h-16 bg-transparent fixed top-0 text-xl md:text-2xl flex items-center px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 py-2 md:py-4 justify-between">
-      <div className={`${plusjakartas.className} font-medium uppercase text-2xl md:text-3xl text-[#E5E5E5]`}>Bingelogg</div>
+      <div className={`${plusjakartas.className} font-medium uppercase text-2xl md:text-3xl text-[#3b2f2f]`}>Bingelogg</div>
       <div className="gap-4 flex">
-      <button className={`outline-2 outline-solid outline-[#C42138] hover:outline-[#871234] hover:text-[#871234] text-[#C42138] px-4 py-2 rounded-md text-sm md:text-base ${inter.className}`}>
+      <button className={`outline-2 outline-solid outline-[#d99a7e] hover:outline-[#c77557] hover:text-[#c77557] text-[#d99a7e] px-4 py-2 rounded-md text-sm md:text-base ${inter.className}`}>
+        <Link href="/login" rel="noopener noreferrer">
         Log in
+        </Link>
       </button>
-      <button className={`bg-[#C42138] text-white px-4 py-2 rounded-md text-sm md:text-base hover:bg-[#871234] transition-colors ${inter.className}`}>
+      <button className={`bg-[#d99a7e] text-white px-4 py-2 rounded-md text-sm md:text-base hover:bg-[#c77557] transition-colors ${inter.className}`}>
+      <Link href="/register" rel="noopener noreferrer">
         Get started
+      </Link>
       </button>
       </div>
     </nav>
