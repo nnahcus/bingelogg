@@ -162,10 +162,6 @@ export default function AddMedia ({open, onOpenChange, onSubmit, editItem,onCanc
       imageUrl: imageUrl || undefined,
     }
 
-  console.log('MediaItem:', mediaData)
-  console.log('Rating value:', values.rating)
-
-    
       // Await the parent onSubmit even if it's synchronous so react-hook-form sets isSubmitting
       await Promise.resolve(onSubmit(mediaData))
       reset()

@@ -10,7 +10,6 @@ export async function SearchMedia(query: string, signal?: AbortSignal) {
 
     } catch (error: any) {
         if (axios.isCancel(error)) {
-            console.log('Request canceled', error.message);
             return null;
         } else {
             throw new Error(`Search request failed: ${error?.message ?? error}`);
