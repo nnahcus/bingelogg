@@ -1,6 +1,6 @@
 ## Bingelogg
 
-![Uploading bingelogg.vercel.app_dashboard (1).png…]
+<img width="2880" height="1460" alt="bingelogg vercel app_dashboard (1)" src="https://github.com/user-attachments/assets/71c99ad7-ed52-433e-a074-8e18bd439600" />
 
 A full-stack media tracking website for tracking movies, animes, mangas and animes like your planner.
 
@@ -23,6 +23,7 @@ Powered by TMDB API and Jikan API
 - **Frontend**: Next.js, React, TypeScript, Tailwind CSS, shad/cn
 - **Backend**: Next.js
 - **Auth**: NextAuth
+
 - **Database**: Prisma + Supabase + PostgreSQL
 - **Validation**: Zod
 - **API**: TMDB API, Jikan API (Mainly) 
