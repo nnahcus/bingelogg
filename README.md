@@ -1,6 +1,6 @@
 ## Bingelogg
 
-![Uploading bingelogg.vercel.app_dashboard (1).png…]()
+![Uploading bingelogg.vercel.app_dashboard (1).png…]
 
 A full-stack media tracking website for tracking movies, animes, mangas and animes like your planner.
 
