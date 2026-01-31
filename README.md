@@ -21,7 +21,7 @@ Powered by TMDB API and Jikan API
 
 ## Tech Stack
 
-- **Frontend**: Next.js, React, TypeScript, Tailwind CSS, shad/cn
+- **Frontend**: Next.js, React, TypeScript, Tailwind CSS, shadcn/ui
 - **Backend**: Next.js
 - **Auth**: NextAuth
 
